@@ -8,15 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class CentreRecyclage extends Model
 {
     use HasFactory;
-
-    // Le nom de la table si ce n'est pas "centres_recyclage"
-    protected $table = 'centres_recyclage';
-
-    // Les colonnes qui peuvent être mass-assignable
+    protected $table = 'centre_recyclages'; 
     protected $fillable = [
-        'nom', 
-        'adresse', 
-        'capacite_max', 
-        'nbr_employes'
+        'name',              // nom
+        'address',           // adresse
+        'material_type',     // type_materiaux
+        'capacity',          // capacité
+        'number_of_employees' // nombre d'employés
     ];
 }
