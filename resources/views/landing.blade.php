@@ -221,8 +221,8 @@
                                     <img src="images/services-2-icon-2.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="dumpster-rental.html">CampagneSensibilisation - Avis
-                                        </a></h3>
+                                <h3 class="services-two__title"><a href="{{ route('campagnes.index') }}">CampagneSensibilisation - Avis</a></h3>
+                                </a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
