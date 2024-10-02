@@ -56,244 +56,44 @@
             <nav class="main-menu main-menu-three">
                 <div class="main-menu-three__wrapper">
                     <div class="main-menu-wrapper__logo">
-                        <a href="index.html"><img src="images/logo-2.png" alt=""></a>
+                    <a href="{{ url('/') }}"><img src="images/logo-2.png" alt=""></a>
                     </div>
                     <div class="main-menu-three__main-menu">
                         <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                         <ul class="main-menu__list">
                             <li class="dropdown">
-                                <a href="index.html">Home</a>
-                                <ul>
-                                    <li>
-                                        <a href="index.html">Home One</a>
-                                    </li>
-                                    <li><a href="index2.html">Home Two</a></li>
-                                    <li><a href="index3.html">Home Three</a></li>
-                                    <li class="dropdown">
-                                        <a href="#">Header Styles</a>
-                                        <ul>
-                                            <li><a href="index.html">Header One</a></li>
-                                            <li><a href="index2.html">Header Two</a></li>
-                                            <li><a href="index3.html">Header Three</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <a href="{{ url('/') }}">Home</a>
+                              
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="about.html">Blogs</a>
                             </li>
                             <li class="dropdown megamenu">
-                                <a href="services.html">Our Services</a>
-                                <ul>
-                                    <li>
-                                        <div class="service-tabs">
-                                            <div class="container">
-                                                <div class="service-tabs__inner tabs-box">
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-lg-4">
-                                                            <ul class="tab-buttons service-tabs__links">
-                                                                <li data-tab="#service-1" class="tab-btn active-btn">
-                                                                    <span>Zero Waste</span>
-                                                                </li>
-                                                                <li data-tab="#service-2" class="tab-btn">
-                                                                    <span>Dumpster Rental</span>
-                                                                </li>
-                                                                <li data-tab="#service-3" class="tab-btn">
-                                                                    <span>Portable Toilet</span>
-                                                                </li>
-                                                                <li data-tab="#service-4" class="tab-btn">
-                                                                    <span>Recylcing Services</span>
-                                                                </li>
-                                                                <li data-tab="#service-5" class="tab-btn">
-                                                                    <span>Residential Pickup</span>
-                                                                </li>
-                                                                <li data-tab="#service-6" class="tab-btn">
-                                                                    <span>Business Pickup</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div><!-- /.col-md-6 -->
-                                                        <div class="col-md-6 col-lg-8">
-                                                            <div class="tabs-content">
-                                                                <div class="tab active-tab animated fadeInUp" id="service-1">
-                                                                    <div class="service-tabs__content">
-                                                                        <div class="service-tabs__text">
-                                                                            <h3 class="service-tabs__title"><a href="zero-waste.html">Zero
-                                                                                    Waste
-                                                                                    &amp; Recycling
-                                                                                    Pickup</a></h3>
-                                                                            <a class="service-tabs__btn" href="zero-waste.html">
-                                                                                <i class="fa fa-arrow-right"></i>
-                                                                                View
-                                                                                More
-                                                                            </a>
-                                                                            <!-- /.service-tabs__title -->
-                                                                        </div><!-- /.service-tabs__text -->
-                                                                        <div class="service-tabs__image">
-                                                                            <img src="images/service-m-1-1.png" alt="">
-                                                                        </div><!-- /.service-tabs__image -->
-                                                                    </div><!-- /.service-tabs__content -->
-                                                                </div>
+    <a href="#services-section">Our Services</a>
+</li>
 
-                                                                <div class="tab" id="service-2">
-                                                                    <div class="service-tabs__content">
-                                                                        <div class="service-tabs__text">
-                                                                            <h3 class="service-tabs__title"><a href="dumpster-rental.html">Dumpster
-                                                                                    Rental
-                                                                                    &amp; Recycling
-                                                                                    Pickup</a></h3>
-                                                                            <a class="service-tabs__btn" href="dumpster-rental.html">
-                                                                                <i class="fa fa-arrow-right"></i>
-                                                                                View
-                                                                                More
-                                                                            </a>
-                                                                            <!-- /.service-tabs__title -->
-                                                                        </div><!-- /.service-tabs__text -->
-                                                                        <div class="service-tabs__image">
-                                                                            <img src="images/service-m-1-2.png" alt="">
-                                                                        </div><!-- /.service-tabs__image -->
-                                                                    </div><!-- /.service-tabs__content -->
-                                                                </div>
-
-                                                                <div class="tab" id="service-3">
-                                                                    <div class="service-tabs__content">
-                                                                        <div class="service-tabs__text">
-                                                                            <h3 class="service-tabs__title"><a href="portable-toilet.html">Portable
-                                                                                    Toilet
-                                                                                    &amp; Recycling
-                                                                                    Pickup</a></h3>
-                                                                            <a class="service-tabs__btn" href="portable-toilet.html">
-                                                                                <i class="fa fa-arrow-right"></i>
-                                                                                View
-                                                                                More
-                                                                            </a>
-                                                                            <!-- /.service-tabs__title -->
-                                                                        </div><!-- /.service-tabs__text -->
-                                                                        <div class="service-tabs__image">
-                                                                            <img src="images/service-m-1-3.png" alt="">
-                                                                        </div><!-- /.service-tabs__image -->
-                                                                    </div><!-- /.service-tabs__content -->
-                                                                </div>
-
-                                                                <div class="tab" id="service-4">
-                                                                    <div class="service-tabs__content">
-                                                                        <div class="service-tabs__text">
-                                                                            <h3 class="service-tabs__title"><a href="recylcing-services.html">Recylcing
-                                                                                    Services
-                                                                                    &amp; Recycling
-                                                                                    Pickup</a></h3>
-                                                                            <a class="service-tabs__btn" href="recylcing-services.html">
-                                                                                <i class="fa fa-arrow-right"></i>
-                                                                                View
-                                                                                More
-                                                                            </a>
-                                                                            <!-- /.service-tabs__title -->
-                                                                        </div><!-- /.service-tabs__text -->
-                                                                        <div class="service-tabs__image">
-                                                                            <img src="images/service-m-1-4.png" alt="">
-                                                                        </div><!-- /.service-tabs__image -->
-                                                                    </div><!-- /.service-tabs__content -->
-                                                                </div>
-
-                                                                <div class="tab" id="service-5">
-                                                                    <div class="service-tabs__content">
-                                                                        <div class="service-tabs__text">
-                                                                            <h3 class="service-tabs__title"><a href="residential-pickup.html">Residential
-                                                                                    Pickup
-                                                                                    &amp; Recycling
-                                                                                    Pickup</a></h3>
-                                                                            <a class="service-tabs__btn" href="residential-pickup.html">
-                                                                                <i class="fa fa-arrow-right"></i>
-                                                                                View
-                                                                                More
-                                                                            </a>
-                                                                            <!-- /.service-tabs__title -->
-                                                                        </div><!-- /.service-tabs__text -->
-                                                                        <div class="service-tabs__image">
-                                                                            <img src="images/service-m-1-5.png" alt="">
-                                                                        </div><!-- /.service-tabs__image -->
-                                                                    </div><!-- /.service-tabs__content -->
-                                                                </div>
-
-                                                                <div class="tab" id="service-6">
-                                                                    <div class="service-tabs__content">
-                                                                        <div class="service-tabs__text">
-                                                                            <h3 class="service-tabs__title"><a href="business-pickup.html">Business
-                                                                                    Waste
-                                                                                    &amp; Recycling
-                                                                                    Pickup</a></h3>
-                                                                            <a class="service-tabs__btn" href="business-pickup.html">
-                                                                                <i class="fa fa-arrow-right"></i>
-                                                                                View
-                                                                                More
-                                                                            </a>
-                                                                            <!-- /.service-tabs__title -->
-                                                                        </div><!-- /.service-tabs__text -->
-                                                                        <div class="service-tabs__image">
-                                                                            <img src="images/service-m-1-6.png" alt="">
-                                                                        </div><!-- /.service-tabs__image -->
-                                                                    </div><!-- /.service-tabs__content -->
-                                                                </div>
-                                                            </div><!-- /.tabs-content -->
-                                                        </div><!-- /.col-md-6 -->
-                                                    </div><!-- /.row -->
-                                                </div><!-- /.service-tabs__inner -->
-                                            </div><!-- /.container -->
-                                        </div><!-- /.service-tabs -->
-                                    </li>
-                                </ul>
+                            <li class="dropdown">
+                                <a href="#feedbacks">Feedbacks</a>
+                                
                             </li>
                             <li class="dropdown">
-                                <a href="#">Industries</a>
-                                <ul>
-                                    <li><a href="industries.html">Industries</a></li>
-                                    <li><a href="industries-carousel.html">Industries Carousel</a></li>
-                                    <li><a href="industry-details.html">Industry Details</a></li>
-                                </ul>
+                                <a href="#members">Members</a>
+                               
                             </li>
-                            <li class="dropdown">
-                                <a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="projects.html">Projects</a></li>
-                                    <li><a href="projects-carousel.html">Projects Carousel</a></li>
-                                    <li><a href="project-details.html">Project Details</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="request-pickup.html">Request A Pickup</a></li>
-                                    <li><a href="staff.html">Staff</a></li>
-                                    <li><a href="staff-carousel.html">Staff Carousel</a></li>
-                                    <li><a href="staff-details.html">Staff Details</a></li>
-                                    <li><a href="testimonials.html">Testimonials</a></li>
-                                    <li><a href="testimonials-carousel.html">Testimonials Carousel</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
-                                    <li><a href="404.html">404 Error</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#">News</a>
-                                <ul>
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="news-carousel.html">News Carousel</a></li>
-                                    <li><a href="news-sidebar.html">News Sidebar Right</a></li>
-                                    <li><a href="news-sidebar-left.html">News Sidebar Left</a></li>
-                                    <li><a href="news-details.html">News Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#carousel-section">News</a></li>
+                            <li><a href="#footer">Contact</a></li>
                         </ul>
                     </div>
                     <div class="main-menu-three__right">
-                        <div class="main-menu-three__search-box">
-                            <a href="#" class="main-menu-three__search search-toggler icon-magnifying-glass"></a>
-                        </div>
-                        <div class="main-menu-three__call">
-                            <div class="main-menu-three__call-icon">
-                                <span class="icon-phone-ringing"></span>
-                            </div>
-                            <div class="main-menu-three__call-number">
-                                <p>Have Waste/Pickup?</p>
-                                <h5><a href="tel:12463330088">+ 1- (246) 333-0088</a></h5>
-                            </div>
-                        </div>
+                    <li><a href="/register" class="thp-btn"><img src="images/reg-icon.svg" class="me-1 " alt="icon"> Register</a></li>
+                 <li class="main-menu-three__call-number">
+                 <a href="/login">
+    <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.52381 16.9033C1.10476 16.9033 0.746159 16.7542 0.448 16.4561C0.149333 16.1574 0 15.7986 0 15.3795V7.76046C0 7.34142 0.149333 6.98256 0.448 6.68389C0.746159 6.38573 1.10476 6.23665 1.52381 6.23665H2.28571V4.71284C2.28571 3.65888 2.65727 2.76034 3.40038 2.01723C4.14298 1.27462 5.04127 0.90332 6.09524 0.90332C7.14921 0.90332 8.04775 1.27462 8.79086 2.01723C9.53346 2.76034 9.90476 3.65888 9.90476 4.71284V6.23665H10.6667C11.0857 6.23665 11.4446 6.38573 11.7432 6.68389C12.0414 6.98256 12.1905 7.34142 12.1905 7.76046V15.3795C12.1905 15.7986 12.0414 16.1574 11.7432 16.4561C11.4446 16.7542 11.0857 16.9033 10.6667 16.9033H1.52381ZM1.52381 15.3795H10.6667V7.76046H1.52381V15.3795ZM6.09524 13.0938C6.51429 13.0938 6.87314 12.9447 7.17181 12.6466C7.46997 12.3479 7.61905 11.989 7.61905 11.57C7.61905 11.1509 7.46997 10.7921 7.17181 10.4934C6.87314 10.1953 6.51429 10.0462 6.09524 10.0462C5.67619 10.0462 5.31759 10.1953 5.01943 10.4934C4.72076 10.7921 4.57143 11.1509 4.57143 11.57C4.57143 11.989 4.72076 12.3479 5.01943 12.6466C5.31759 12.9447 5.67619 13.0938 6.09524 13.0938ZM3.80952 6.23665H8.38095V4.71284C8.38095 4.07792 8.15873 3.53824 7.71429 3.0938C7.26984 2.64935 6.73016 2.42713 6.09524 2.42713C5.46032 2.42713 4.92064 2.64935 4.47619 3.0938C4.03175 3.53824 3.80952 4.07792 3.80952 4.71284V6.23665ZM1.52381 15.3795V7.76046V15.3795Z" fill="white"/>
+</svg>
+        Login
+    </a>
+</li>
                     </div>
                 </div>
             </nav>
@@ -305,7 +105,24 @@
 
         <!--Main Slider Start-->
         <section class="main-slider main-slider-three">
-            <div 5000="" class="swiper-container thm-swiper__slider" data-swiper-options="{" slidesperview":="" 1,="" "loop":="" false,="" "effect":="" "fade",="" "pagination":="" {="" "el":="" "#main-slider-pagination",="" "type":="" "bullets",="" "clickable":="" true="" },="" "navigation":="" "nextel":="" "#main-slider__swiper-button-next",="" "prevel":="" "#main-slider__swiper-button-prev"="" "autoplay":="" "delay":="" }}"="">
+        <div class="swiper-container thm-swiper__slider" data-swiper-options='{
+    "slidesPerView": 1,
+    "loop": false,
+    "effect": "fade",
+    "pagination": {
+        "el": "#main-slider-pagination",
+        "type": "bullets",
+        "clickable": true
+    },
+    "navigation": {
+        "nextEl": "#main-slider__swiper-button-next",
+        "prevEl": "#main-slider__swiper-button-prev"
+    },
+    "autoplay": {
+        "delay": 5000
+    }
+}'>
+
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
@@ -335,7 +152,7 @@
         <!--Main Slider End-->
 
         <!--Services Two Start-->
-        <section class="services-two">
+        <section id="services-section" class="services-two">
             <div class="container">
                 <div class="section-title text-center">
                     <span class="section-title__tagline">What We’re Offering</span>
@@ -354,7 +171,7 @@
                                     <img src="images/services-2-icon-1.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="zero-waste.html">Zero Waste</a></h3>
+                                    <h3 class="services-two__title"><a href="zero-waste.html">PlanningCollecte - EquipementCollecte</a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
@@ -378,8 +195,33 @@
                                     <img src="images/services-2-icon-2.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Dumpster Rental
+                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Déchet - ZoneCollecte
                                         </a></h3>
+                                    <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
+                                </div>
+                            </div>
+                            <div class="services-two__read-more">
+                                <a href="dumpster-rental.html">
+                                    <span>Read More</span>
+                                    <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <!--Services Two Single-->
+                        <div class="services-two__single mart-30">
+                            <div class="services-two__content-box">
+                                <div class="services-two__content-bg-box">
+                                    <div class="services-two__content-bg" style="background-image: url(images/services-two-content-bg.jpg);">
+                                    </div>
+                                </div>
+                                <div class="services-two__icon">
+                                    <img src="images/services-2-icon-2.png" alt="">
+                                </div>
+                                <div class="services-two__content">
+                                <h3 class="services-two__title"><a href="{{ route('campagnes.index') }}">CampagneSensibilisation - Avis</a></h3>
+                                </a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
@@ -403,7 +245,7 @@
                                     <img src="images/services-2-icon-3.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="portable-toilet.html">Portable Toilet</a>
+                                    <h3 class="services-two__title"><a href="portable-toilet.html">CollectEvenement- Rapport</a>
                                     </h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
@@ -428,8 +270,7 @@
                                     <img src="images/services-2-icon-4.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="recylcing-services.html">Recycling
-                                            Service</a></h3>
+                                    <h3 class="services-two__title"><a href="recylcing-services.html">CentreRecyclage - Reclamation</a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
@@ -508,15 +349,7 @@
                             <p class="why-choose-two__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.
                             </p>
-                            <div class="why-choose-two__founder">
-                                <div class="why-choose-two__founder-img">
-                                    <img src="images/why-choose-two-founder-img.jpg" alt="">
-                                </div>
-                                <div class="why-choose-two__founder-content">
-                                    <h3 class="why-choose-two__founder-name">Kevin Martin</h3>
-                                    <p class="why-choose-two__founder-title">CEO - Co Founder</p>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
@@ -889,7 +722,7 @@
         <!--Pricing End-->
 
         <!--Testimonial Three Start-->
-        <section class="testimonial-three">
+        <section id="feedbacks" class="testimonial-three">
             <div class="testimonial-three-bg" style="background-image: url(images/testimonial-three-bg.jpg);"></div>
             <div class="testimonial-three-bg-2" style="background-image: url(images/testimonial-three-bg-2.png);"></div>
             <div class="container">
@@ -900,21 +733,30 @@
                                 <span class="section-title__tagline">Our Customers Feedbacks</span>
                                 <h2 class="section-title__title">What Our Customers Are Talking</h2>
                             </div>
-                            <div class="testimonial-three__carousel owl-theme owl-carousel thm-owl__carousel" data-owl-options="{
-                                " loop":="" true,="" "autoplay":="" "margin":="" 30,="" "nav":="" false,="" "dots":="" "smartspeed":="" 500,="" "autoplaytimeout":="" 10000,="" "navtext":="" ["<span="" fa-angle-left\"="">","<span class="\&quot;fa" fa-angle-right\"=""></span>"],
-                                "responsive": {
-                                    "0": {
-                                        "items": 1
-                                    },
-                                    "768": {
-                                        "items": 1
-                                    },
-                                    "1200": {
-                                        "items": 1
-                                    }
-                                }
-                            }"&gt;
-                                <!--Testimonial One Single-->
+                            <div class="testimonial-three__carousel owl-theme owl-carousel thm-owl__carousel" data-owl-options='{
+    "loop": true,
+    "autoplay": true,
+    "margin": 30,
+    "nav": false,
+    "dots": true,
+    "smartspeed": 500,
+    "autoplayTimeout": 10000,
+    "navText": ["<span class=\"fa fa-angle-left\"></span>", "<span class=\"fa fa-angle-right\"></span>"],
+    "responsive": {
+        "0": {
+            "items": 1
+        },
+        "768": {
+            "items": 1
+        },
+        "1200": {
+            "items": 1
+        }
+    }
+}'>
+    <!--Testimonial One Single-->
+</div>
+
                                 <div class="testimonial-three__single">
                                     <div class="testimonial-three__feedback-box">
                                         <div class="testimonial-three__feedback">
@@ -1013,7 +855,7 @@
         <!--Testimonial Three End-->
 
         <!--Team One Start-->
-        <section class="team-one">
+        <section id="members"class="team-one">
             <div class="container">
                 <div class="section-title text-center">
                     <span class="section-title__tagline">Team Behind Success</span>
@@ -1024,14 +866,66 @@
                         <!--Team One Single-->
                         <div class="team-one__sngle">
                             <div class="team-one__img">
-                                <img src="images/team-1-1.jpg" alt="">
+                                <img src="images/emna.jpg" width="130" height="380"alt="">
                                 <div class="team-one__shape">
                                     <img src="images/team-one-shape.png" alt="">
                                 </div>
                             </div>
                             <div class="team-one__content">
                                 <p class="team-one__title">Accountant</p>
-                                <h3 class="team-one__name">Kevin Martin</h3>
+                                <h3 class="team-one__name">Emna Felfel</h3>
+                                <div class="team-one__social-box">
+                                    <div class="team-one__social">
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                    <div class="team-one__arrow">
+                                        <a href="staff-details.html"><i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                        <!--Team One Single-->
+                        <div class="team-one__sngle">
+                            <div class="team-one__img">
+                                <img src="images/feriel.png" width="130" height="380" alt="">
+                                <div class="team-one__shape">
+                                    <img src="images/team-one-shape.png" alt="">
+                                </div>
+                            </div>
+                            <div class="team-one__content">
+                                <p class="team-one__title">Accountant</p>
+                                <h3 class="team-one__name">Feriel Belhajkacem</h3>
+                                <div class="team-one__social-box">
+                                    <div class="team-one__social">
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                    <div class="team-one__arrow">
+                                        <a href="staff-details.html"><i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                        <!--Team One Single-->
+                        <div class="team-one__sngle">
+                            <div class="team-one__img">
+                                <img src="images/ghofrane.jpg" width="130" height="380" alt="">
+                                <div class="team-one__shape">
+                                    <img src="images/team-one-shape.png" alt="">
+                                </div>
+                            </div>
+                            <div class="team-one__content">
+                                <p class="team-one__title">Accountant</p>
+                                <h3 class="team-one__name">Ghofrane Talbi </h3>
                                 <div class="team-one__social-box">
                                     <div class="team-one__social">
                                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1050,14 +944,14 @@
                         <!--Team One Single-->
                         <div class="team-one__sngle">
                             <div class="team-one__img">
-                                <img src="images/team-1-2.jpg" alt="">
+                                <img src="images/arij.jpg" width="150" height="380" alt="">
                                 <div class="team-one__shape">
                                     <img src="images/team-one-shape.png" alt="">
                                 </div>
                             </div>
                             <div class="team-one__content">
                                 <p class="team-one__title">Co Founder</p>
-                                <h3 class="team-one__name">Jessica Brown</h3>
+                                <h3 class="team-one__name">Arij Nabli</h3>
                                 <div class="team-one__social-box">
                                     <div class="team-one__social">
                                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1076,14 +970,14 @@
                         <!--Team One Single-->
                         <div class="team-one__sngle">
                             <div class="team-one__img">
-                                <img src="images/team-1-3.jpg" alt="">
+                                <img src="images/arwa.jpg" alt="">
                                 <div class="team-one__shape">
                                     <img src="images/team-one-shape.png" alt="">
                                 </div>
                             </div>
                             <div class="team-one__content">
                                 <p class="team-one__title">Senior Assistant</p>
-                                <h3 class="team-one__name">David Cooper</h3>
+                                <h3 class="team-one__name">Arwa Boughataya</h3>
                                 <div class="team-one__social-box">
                                     <div class="team-one__social">
                                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1193,7 +1087,7 @@
         <!--Working Process End-->
 
         <!--News Three Start-->
-        <section class="news-three">
+        <section id="carousel-section" class="news-three ">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4">
@@ -1211,24 +1105,32 @@
                     </div>
                     <div class="col-xl-8 col-lg-8">
                         <div class="news-three__right">
-                            <div class="news-three__carousel owl-carousel owl-theme thm-owl__carousel" data-owl-options="{
-                                " loop":="" true,="" "autoplay":="" "margin":="" 30,="" "nav":="" "dots":="" false,="" "smartspeed":="" 500,="" "autoplaytimeout":="" 10000,="" "navtext":="" ["<span="">","<span class="\&quot;icon-right-arrow\&quot;"></span>"],
-                                "responsive": {
-                                    "0": {
-                                        "items": 1
-                                    },
-                                    "768": {
-                                        "items": 1
-                                    },
-                                    "992": {
-                                        "items": 2
-                                    },
-                                    "1200": {
-                                        "items": 2.01
-                                    }
-                                }
-                            }"&gt;
-                                <!--News One Single-->
+                        <div class="news-three__carousel owl-carousel owl-theme thm-owl__carousel" data-owl-options='{
+            "loop": true,
+            "autoplay": true,
+            "margin": 30,
+            "nav": true,
+            "dots": false,
+            "smartSpeed": 500,
+            "autoplayTimeout": 10000,
+            "navText": ["<span class=\"icon-left-arrow\"></span>", "<span class=\"icon-right-arrow\"></span>"],
+            "responsive": {
+                "0": {
+                    "items": 1
+                },
+                "768": {
+                    "items": 1
+                },
+                "992": {
+                    "items": 2
+                },
+                "1200": {
+                    "items": 2.01
+                }
+            }
+        }'>
+            <!--News One Single-->
+      
                                 <div class="news-one__single">
                                     <div class="news-one__img">
                                         <img src="images/news-1-1.jpg" alt="">
@@ -1320,8 +1222,37 @@
         <!--Brand One Start-->
         <section class="brand-one brand-three">
             <div class="container">
-                <div 2="" 3="" 4="" 5="" 5000="" class="thm-swiper__slider swiper-container" data-swiper-options="{" spacebetween":="" 100,="" "slidesperview":="" 5,="" "autoplay":="" {="" "delay":="" },="" "breakpoints":="" "0":="" "spacebetween":="" 30,="" "375":="" "575":="" "767":="" 50,="" "991":="" "1199":="" }="" }}"="">
-                    <div class="swiper-wrapper">
+            <div class="thm-swiper__slider swiper-container" data-swiper-options='{
+    "spaceBetween": 100,
+    "slidesPerView": 5,
+    "autoplay": {
+        "delay": 5000
+    },
+    "breakpoints": {
+        "0": {
+            "spaceBetween": 30
+        },
+        "375": {
+            "spaceBetween": 30
+        },
+        "575": {
+            "spaceBetween": 50
+        },
+        "767": {
+            "spaceBetween": 50
+        },
+        "991": {
+            "spaceBetween": 100
+        },
+        "1199": {
+            "spaceBetween": 100
+        }
+    }
+}'>
+    <!-- Your swiper content goes here -->
+
+
+                    <div class="swiper-wrapper ">
                         <div class="swiper-slide">
                             <img src="images/brand-1-1.png" alt="">
                         </div><!-- /.swiper-slide -->
@@ -1359,7 +1290,7 @@
         <!--Brand One End-->
 
         <!--Site Footer Start-->
-        <footer class="site-footer">
+        <footer class="site-footer" id="footer">
             <div class="site-footer-bg" style="background-image: url(images/site-footer-bg.jpg);">
             </div>
             <div class="site-footer__top">
@@ -1433,8 +1364,7 @@
                                     <div class="footer-widget__contact-content">
                                         <p class="footer-widget__contact-mail-phone">
                                             <a href="mailto:needhelp@wostin.com" class="footer-widget__contact-mail">needhelp@wostin.com</a>
-                                            <a href="tel:2463330088" class="footer-widget__contact-phone">+ 1- (246)
-                                                333-0088</a>
+                                            <a href="tel:2463330088" class="footer-widget__contact-phone">51 277 814</a>
                                         </p>
                                     </div>
                                 </div>
@@ -1483,7 +1413,7 @@
                 </li>
                 <li>
                     <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
+                    <a href="tel:51-277-814">51 277 814</a>
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">
