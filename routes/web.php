@@ -14,6 +14,7 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
+Route::resource('/collecte-evenements',App\Http\Controllers\CollecteEvenementController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
