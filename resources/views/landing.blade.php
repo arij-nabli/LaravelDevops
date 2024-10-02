@@ -171,7 +171,7 @@
                                     <img src="images/services-2-icon-1.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="zero-waste.html">Zero Waste</a></h3>
+                                    <h3 class="services-two__title"><a href="zero-waste.html">PlanningCollecte - EquipementCollecte</a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                                     <img src="images/services-2-icon-2.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Dumpster Rental
+                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Déchet - ZoneCollecte
                                         </a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
@@ -220,7 +220,7 @@
                                     <img src="images/services-2-icon-2.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Dumpster Rental
+                                    <h3 class="services-two__title"><a href="dumpster-rental.html">CampagneSensibilisation - Avis
                                         </a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
@@ -245,7 +245,7 @@
                                     <img src="images/services-2-icon-3.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="portable-toilet.html">Portable Toilet</a>
+                                    <h3 class="services-two__title"><a href="portable-toilet.html">CollectEvenement- Rapport</a>
                                     </h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
@@ -270,8 +270,7 @@
                                     <img src="images/services-2-icon-4.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="recylcing-services.html">Recycling
-                                            Service</a></h3>
+                                    <h3 class="services-two__title"><a href="recylcing-services.html">CentreRecyclage - Reclamation</a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
