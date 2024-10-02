@@ -9,10 +9,21 @@ use App\Http\Controllers\DechetController;
 
 use App\Http\Controllers\CentreRecyclageController;
 
+use App\Http\Controllers\EquipementController;
 
 Route::get('/', function () {
     return view('landing');
 });
+
+
+
+
+
+Route::resource('equipement', EquipementController::class);
+
+
+
+
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -23,6 +34,7 @@ Route::get('/register', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 
@@ -39,4 +51,6 @@ Route::resource('centre-recyclage', CentreRecyclageController::class);
 
 // Route pour le contrôleur CampagneSensibilisation
 Route::resource('/campagnes', CampagneSensibilisationController::class);
+
+
 
