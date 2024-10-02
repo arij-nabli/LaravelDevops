@@ -195,12 +195,10 @@
                                     <img src="images/services-2-icon-2.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-    <h3 class="services-two__title">
-        <a href="{{ url('/dechets') }}">Déchet - ZoneCollecte</a>
-    </h3>
-    <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
-</div>
-
+                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Dumpster Rental
+                                        </a></h3>
+                                    <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
+                                </div>
                             </div>
                             <div class="services-two__read-more">
                                 <a href="dumpster-rental.html">
@@ -247,13 +245,13 @@
                                     <img src="images/services-2-icon-3.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="portable-toilet.html">CollectEvenement- Rapport</a>
+                                    <h3 class="services-two__title"><a href="portable-toilet.html">Portable Toilet</a>
                                     </h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
                             <div class="services-two__read-more">
-                                <a href="portable-toilet.html">
+                                <a href="collecte-evenements">
                                     <span>Read More</span>
                                     <i class="fa fa-arrow-right"></i>
                                 </a>
