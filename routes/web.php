@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CentreRecyclageController;
 
 Route::get('/', function () {
     return view('landing');
@@ -14,6 +15,9 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
+
+
+Route::resource('centre-recyclage', CentreRecyclageController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

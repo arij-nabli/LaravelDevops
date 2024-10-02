@@ -270,12 +270,12 @@
                                     <img src="images/services-2-icon-4.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="recylcing-services.html">CentreRecyclage - Reclamation</a></h3>
+                                    <h3 class="services-two__title">     <a href="{{ url('/centre-recyclage') }}">CentreRecyclage - Reclamation</a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
                             <div class="services-two__read-more">
-                                <a href="recylcing-services.html">
+                                <a href="{{ url('/centre-recyclage') }}">
                                     <span>Read More</span>
                                     <i class="fa fa-arrow-right"></i>
                                 </a>
