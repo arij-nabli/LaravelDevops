@@ -176,10 +176,10 @@
                                 </div>
                             </div>
                             <div class="services-two__read-more">
-                                <a href="zero-waste.html">
-                                    <span>Read More</span>
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
+                            <a href="/equipement">
+                                <span>Read More</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
                             </div>
                         </div>
                     </div>
