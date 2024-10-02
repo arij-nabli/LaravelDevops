@@ -3,6 +3,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EquipementController;
 
 use App\Http\Controllers\DechetController;
 
@@ -12,6 +13,18 @@ use App\Http\Controllers\CentreRecyclageController;
 Route::get('/', function () {
     return view('landing');
 });
+
+
+
+Route::resource('equipement', EquipementController::class);
+
+
+
+
+
+
+
+
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -33,4 +46,4 @@ Route::resource('/collecte-evenements',App\Http\Controllers\CollecteEvenementCon
 Route::resource('centre-recyclage', CentreRecyclageController::class);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

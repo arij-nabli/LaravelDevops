@@ -171,15 +171,15 @@
                                     <img src="images/services-2-icon-1.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="zero-waste.html">PlanningCollecte - EquipementCollecte</a></h3>
+                                    <h3 class="services-two__title"><a href="zero-waste.html">PlanningCollecte&EquipementCollecte</a></h3>
                                     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
                                 </div>
                             </div>
                             <div class="services-two__read-more">
-                                <a href="zero-waste.html">
-                                    <span>Read More</span>
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
+                            <a href="/equipement">
+                                <span>Read More</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
                             </div>
                         </div>
                     </div>
