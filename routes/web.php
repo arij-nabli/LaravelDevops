@@ -3,7 +3,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\DechetController;
+
+use App\Http\Controllers\CentreRecyclageController;
 
 
 Route::get('/', function () {
@@ -21,6 +24,9 @@ Route::get('/register', function () {
 //Route::resource('dechets', DechetController::class);
 Route::resource('dechets', DechetController::class);
 
+
+
+Route::resource('centre-recyclage', CentreRecyclageController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
