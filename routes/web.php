@@ -3,6 +3,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DechetController;
+
 
 Route::get('/', function () {
     return view('landing');
@@ -16,6 +18,7 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
+//Route::resource('dechets', DechetController::class);
 Route::resource('dechets', DechetController::class);
 
 

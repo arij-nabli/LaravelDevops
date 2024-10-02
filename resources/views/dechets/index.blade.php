@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Layouts.apps')
 
 @section('content')
     <div class="container">
@@ -14,7 +14,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID</th>
+                 
                     <th>Type</th>
                     <th>Description</th>
                     <th>Actions</th>
@@ -23,7 +23,7 @@
             <tbody>
                 @foreach($dechets as $dechet)
                     <tr>
-                        <td>{{ $dechet->id }}</td>
+                        
                         <td>{{ $dechet->type }}</td>
                         <td>{{ $dechet->description }}</td>
                         <td>
@@ -37,6 +37,12 @@
                         </td>
                     </tr>
                 @endforeach
+
+                @if ($dechets->isEmpty())
+                    <tr>
+                        <td colspan="4">Aucun déchet trouvé.</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
     </div>

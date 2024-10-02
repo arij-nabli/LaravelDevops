@@ -195,10 +195,12 @@
                                     <img src="images/services-2-icon-2.png" alt="">
                                 </div>
                                 <div class="services-two__content">
-                                    <h3 class="services-two__title"><a href="dumpster-rental.html">Déchet - ZoneCollecte
-                                        </a></h3>
-                                    <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
-                                </div>
+    <h3 class="services-two__title">
+        <a href="{{ url('/dechets') }}">Déchet - ZoneCollecte</a>
+    </h3>
+    <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
+</div>
+
                             </div>
                             <div class="services-two__read-more">
                                 <a href="dumpster-rental.html">

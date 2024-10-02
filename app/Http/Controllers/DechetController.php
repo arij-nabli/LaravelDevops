@@ -10,15 +10,16 @@ class DechetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $dechets = Dechet::all();
-        return view('dechets.index', compact('dechets'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function index()
+{
+    $dechets = Dechet::all();
+    
+    return view('dechets.index', [
+        'dechets' =>$dechets
+    ]);
+}
+
     public function create()
     {
         return view('dechets.create');
