@@ -16,7 +16,7 @@ use App\Http\Controllers\DechetController;
 use App\Http\Controllers\CentreRecyclageController;
 
 
-use App\Http\Controllers\EquipementController;
+
 
 
 Route::get('/', function () {
