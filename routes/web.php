@@ -4,7 +4,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 use App\Http\Controllers\EquipementController;
+
 
 use App\Http\Controllers\CampagneSensibilisationController; // Correctement importé avec 'App'
 
@@ -12,6 +14,9 @@ use App\Http\Controllers\CampagneSensibilisationController; // Correctement impo
 use App\Http\Controllers\DechetController;
 
 use App\Http\Controllers\CentreRecyclageController;
+
+
+use App\Http\Controllers\EquipementController;
 
 
 Route::get('/', function () {
@@ -28,9 +33,6 @@ Route::resource('equipement', EquipementController::class);
 
 
 
-
-
-
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -40,6 +42,7 @@ Route::get('/register', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 
