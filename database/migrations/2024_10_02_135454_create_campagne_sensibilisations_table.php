@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('centres_recyclage', function (Blueprint $table) {
+        Schema::create('campagne_sensibilisations', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('adresse');
-            $table->integer('capacite_max');
-            $table->integer('nbr_employes');
+            $table->string('titre');
+            $table->date('date_debut');
+            $table->date('date_fin');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('centres_recyclage');
+        Schema::dropIfExists('campagne_sensibilisations');
     }
 };
