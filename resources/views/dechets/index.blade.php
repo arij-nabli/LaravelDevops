@@ -1,4 +1,4 @@
-@extends('Layouts.apps')
+@extends('Layouts.frontend')
 
 @section('content')
     <div class="container">

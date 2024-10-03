@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Layouts.frontend')
 
 @section('title', 'Liste des Campagnes de Sensibilisation')
 

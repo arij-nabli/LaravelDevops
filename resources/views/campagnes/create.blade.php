@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Layouts.frontend')
 
 @section('content')
     <h1>create a new campaign</h1>

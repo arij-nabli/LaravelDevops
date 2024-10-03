@@ -1,4 +1,4 @@
-@extends('Layouts.list')
+@extends('Layouts.frontend')
 
 @section('content')
 

@@ -1,4 +1,5 @@
-@extends('layouts.list')
+@extends('Layouts.frontend')
+
 
 @section('content')
 

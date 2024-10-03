@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Layouts.frontend')
 
 @section('title', 'Modifier une Campagne')
 
