@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('centre_recyclages', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('adresse');
-            $table->integer('capacite_max');
-            $table->integer('nbr_employes');
+            $table->string('name'); // nom
+            $table->string('address'); // adresse
+            $table->string('material_type'); // type_materiaux
+            $table->integer('capacity'); // capacité
+            $table->integer('number_of_employees'); // nombre d'employés
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('centres_recyclage');
+        Schema::dropIfExists('centre_recyclages');
     }
 };
