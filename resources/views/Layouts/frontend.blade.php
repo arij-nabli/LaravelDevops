@@ -29,7 +29,7 @@
 
 <!-- Header -->
 <header class="main-header">
-    <nav class="navbar navbar-expand-lg" style="background-color:#146c43">
+    <nav class="navbar navbar-expand-lg" style="background-color:#558e4c;">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('images/logo-2.png') }}" alt="Logo" />
