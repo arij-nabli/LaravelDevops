@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Edit Recycling Center
-                        <a href="{{ url('centre-recyclage') }}" class="btn btn-danger float-end">Back</a>
+
                     </h4>
                 </div>
                 <div class="card-body">
@@ -41,8 +41,10 @@
                             @error('number_of_employees') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
+                              
+                                <button type="submit" class="btn btn-success" style="border-radius: 15px;">Save</button>
+                                <a href="{{ url('centre-recyclage') }}" class="btn btn-secondary ms-2" style="border-radius: 15px;">Back</a>
+                            </div>
                     </form>
                 </div>
             </div>
