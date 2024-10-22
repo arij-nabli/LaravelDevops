@@ -74,7 +74,7 @@
 
 <!-- Footer -->
 <footer class="site-footer mt-5" id="footer">
-<div class="site-footer-bg" style="background-image: url('{{ asset('images/site-footer-bg.jpg') }}');"></div>
+<div class="site-footer-bg" style="background-image: url('{{ asset('images/site-footer-bg.jpg') }}')"></div>
 
     <div class="site-footer__top">
         <div class="container">

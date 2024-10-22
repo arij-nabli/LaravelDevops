@@ -46,4 +46,46 @@
             </tbody>
         </table>
     </div>
+    <div class="container">
+        <h1>Liste des Zones de Collecte</h1>
+        <a href="{{ route('zone-collectes.create') }}" class="btn btn-primary">Créer une nouvelle Zone</a>
+
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-2">
+                {{ $message }}
+            </div>
+        @endif
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Code Postal</th>
+                    <th>Localisation</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($zoneCollectes as $zoneCollecte)
+                    <tr>
+                        <td>{{ $zoneCollecte->id }}</td>
+                        <td>{{ $zoneCollecte->nom }}</td>
+                        <td>{{ $zoneCollecte->code_postal }}</td>
+                        <td>{{ $zoneCollecte->localisation }}</td>
+                        <td>
+                            <a href="{{ route('zone-collectes.show', $zoneCollecte->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{{ route('zone-collectes.edit', $zoneCollecte->id) }}" class="btn btn-warning">Modifier</a>
+                            <form action="{{ route('zone-collectes.destroy', $zoneCollecte->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection
+

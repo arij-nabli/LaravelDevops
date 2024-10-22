@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dechet;
+use App\Models\ZoneCollecte;
 use Illuminate\Http\Request;
 
 class DechetController extends Controller
@@ -14,9 +15,12 @@ class DechetController extends Controller
     public function index()
 {
     $dechets = Dechet::all();
+    $zoneCollectes = ZoneCollecte::all();
     
     return view('dechets.index', [
-        'dechets' =>$dechets
+        'dechets' =>$dechets,
+        'zoneCollectes' =>$zoneCollectes
+
     ]);
 }
 

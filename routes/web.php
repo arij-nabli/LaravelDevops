@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipementController;
 
 
-use App\Http\Controllers\CampagneSensibilisationController; // Correctement importé avec 'App'
+use App\Http\Controllers\CampagneSensibilisationController; 
 
 
 use App\Http\Controllers\DechetController;
 
 use App\Http\Controllers\CentreRecyclageController;
 
+use App\Http\Controllers\ZoneCollecteController;
 
 
 
@@ -40,6 +41,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 });
+Route::resource('zone-collectes', \App\Http\Controllers\ZoneCollecteController::class);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
