@@ -14,6 +14,12 @@ class Equipement extends Model
         'name',
         'validity',
         'disponibility',
-        'quantity'
+        'quantity',
+        'image',
     ];
+    public function plannings()
+{
+    return $this->belongsToMany(Planning::class, 'equipement_planning');
+}
+
 }

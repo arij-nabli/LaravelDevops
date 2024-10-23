@@ -36,6 +36,18 @@
 
 
                             </div>
+                            <div>
+                            <h3>Plannings associés :</h3>
+                                @if ($equipement->plannings->isEmpty())
+                                    <p>Aucun planning associé.</p>
+                                @else
+                                    <ul>
+                                        @foreach ($equipement->plannings as $planning)
+                                            <li>{{ $planning->dateCollecte }} à {{ $planning->heureDebut }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>

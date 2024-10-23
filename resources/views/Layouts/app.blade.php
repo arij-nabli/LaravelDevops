@@ -32,5 +32,22 @@
                 {{ $slot }}
             </main>
         </div>
+<<<<<<< HEAD
     </body>
+=======
+        
+        <!-- JS files -->
+        <script src="{{ asset('Assets/Admin/js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('Assets/Admin/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('Assets/Admin/js/feather.min.js') }}"></script>
+        <script src="{{ asset('Assets/Admin/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ asset('Assets/Admin/plugins/select2/js/select2.min.js') }}"></script>
+        <script src="{{ asset('Assets/Admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('Assets/Admin/plugins/datatables/datatables.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="{{ asset('Assets/Admin/js/script.js') }}"></script>
+        
+    </div>
+</body>
+>>>>>>> PlanningCollecte-EquipementCollecte
 </html>

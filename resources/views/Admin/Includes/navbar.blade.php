@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header mb-4">
     <div class="header-left">
         <a href="index.html" class="logo">
             <img src="{{ asset('images/footer-logo.png') }}" alt="Logo">
@@ -13,12 +13,7 @@
             <i class="feather-chevrons-left"></i>
         </a>
     </div>
-    <div class="top-nav-search">
-        <form>
-            <input type="text" class="form-control" placeholder="Start typing your Search...">
-            <button class="btn" type="submit"><i class="feather-search"></i></button>
-        </form>
-    </div>
+    
     <ul class="nav user-menu">
         <li class="nav-item dropdown">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
