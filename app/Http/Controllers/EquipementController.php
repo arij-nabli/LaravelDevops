@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipement;
 use Illuminate\Http\Request;
+use App\Models\Planning;
+
 
 class EquipementController extends Controller
 {
@@ -16,6 +18,24 @@ class EquipementController extends Controller
         return view('equipement.index',[
             'equipements' => $equipements
         ]);
+    }
+    public function affecterPlanning(Equipement $equipement)
+    {
+        // Récupérer les plannings futurs
+        $planningsFuturs = Planning::where('dateCollecte', '>', now())->get();
+
+        return view('equipement.affecter', compact('equipement', 'planningsFuturs'));
+    }
+    public function storeAffectation(Request $request, Equipement $equipement)
+    {
+        $request->validate([
+            'planning_id' => 'required|exists:plannings,id', // Validation de l'existence du planning
+        ]);
+
+        // Attacher l'équipement au planning
+        $equipement->plannings()->attach($request->planning_id);
+
+        return redirect()->route('equipement.show', $equipement->id)->with('status', 'Équipement affecté au planning avec succès.');
     }
 
     /**
@@ -52,9 +72,11 @@ class EquipementController extends Controller
      */
     public function show(Equipement $equipement)
     {
-        return view('equipement.show' , compact('equipement'));
-
+        $equipement->load('plannings'); // Charge les plannings associés
+    
+        return view('equipement.show', compact('equipement'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

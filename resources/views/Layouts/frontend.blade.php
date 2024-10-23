@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/wostin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/wostin-responsive.css') }}">
+    
+    <!-- Include FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
 </head>
 <body>
 
@@ -74,7 +77,7 @@
 
 <!-- Footer -->
 <footer class="site-footer mt-5" id="footer">
-<div class="site-footer-bg" style="background-image: url('{{ asset('images/site-footer-bg.jpg') }}');"></div>
+    <div class="site-footer-bg" style="background-image: url('{{ asset('images/site-footer-bg.jpg') }}')"></div>
 
     <div class="site-footer__top">
         <div class="container">
@@ -159,8 +162,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">© Copyright 2022 by <a href="#">Layerdrops.com</a>
-                        </p>
+                        <p class="site-footer__bottom-text">Copyright &copy; 2024 <a href="{{ url('/') }}">Wostin</a>. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
@@ -168,9 +170,26 @@
     </div>
 </footer>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+<!-- Scroll to top -->
+<a href="#" id="scrollToTop"><i class="fa fa-angle-up"></i></a>
 
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/wostin.js') }}"></script>
+
+<!-- Include FullCalendar JS -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth'
+            // You can add more options here
+        });
+        calendar.render();
+    });
+</script>
+
+@yield('scripts') <!-- This is where additional page scripts will be injected -->
 </body>
 </html>

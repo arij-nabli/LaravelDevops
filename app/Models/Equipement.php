@@ -16,4 +16,9 @@ class Equipement extends Model
         'disponibility',
         'quantity'
     ];
+    public function plannings()
+{
+    return $this->belongsToMany(Planning::class, 'equipement_planning');
+}
+
 }

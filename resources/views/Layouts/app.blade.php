@@ -33,6 +33,7 @@
         <script src="{{ asset('Assets/Admin/plugins/datatables/datatables.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script src="{{ asset('Assets/Admin/js/script.js') }}"></script>
+        
     </div>
 </body>
 </html>

@@ -43,6 +43,8 @@
                                     <td>{{$equipement->quantity}}</td>
                                     <td>
                                         <a href="{{ route('equipement.edit' , $equipement->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('equipement.affecter', $equipement->id) }}" class="btn btn-warning">Affecter</a>
+
                                         <a href="{{ route('equipement.show' , $equipement->id) }}" class="btn btn-info">Show</a>
                                         <form action="{{ route('equipement.destroy' , $equipement->id) }}" method="POST" class="d-inline">
                                         @csrf 
@@ -63,6 +65,7 @@
 
             </div>
         </div>
+        
     </div>
 
 @endsection

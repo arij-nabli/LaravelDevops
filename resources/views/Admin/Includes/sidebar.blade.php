@@ -26,8 +26,9 @@
                     <a href="collectors.html"><i data-feather="truck"></i> <span>Waste Collectors</span></a>
                 </li>
                 <li>
-                    <a href="deposits.html"><i data-feather="credit-card"></i> <span>Deposit Funds</span></a>
-                </li>
+    <a href="{{ route('calendar') }}"><i data-feather="calendar"></i> <span>Calendar</span></a>
+</li>
+
                 <li>
                     <a href="reports.html"><i data-feather="pie-chart"></i> <span>Reports</span></a>
                 </li>
