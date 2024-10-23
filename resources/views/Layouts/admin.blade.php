@@ -19,7 +19,7 @@
         @include('Admin.Includes.navbar')
         @include('Admin.Includes.sidebar')
 
-        <div class="main-content">
+        <div class="main-content ">
             @yield('content')
         </div>
     </div>

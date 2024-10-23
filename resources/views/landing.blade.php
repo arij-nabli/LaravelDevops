@@ -174,7 +174,10 @@
 
                                 <div class="services-two__content">
     <h3 class="services-two__title">
-        <a href="{{ url('/equipement') }}">PlanningCollecte&EquipementCollecte</a>
+        <a href="{{ url('/planning') }}">PlanningCollecte & </a>
+  
+   
+        <a href="{{ url('/equipement') }}">EquipementCollecte</a>
     </h3>
     <p class="services-two__text">Lorem ipsum dolor sit amet, adipelit do.</p>
 </div>

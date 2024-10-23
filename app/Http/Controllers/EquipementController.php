@@ -41,7 +41,7 @@ class EquipementController extends Controller
             'planning_id' => 'required|exists:plannings,id', // Validation de l'existence du planning
         ]);
 
-        // Attacher l'équipement au planning
+
         $equipement->plannings()->attach($request->planning_id);
 
         return redirect()->route('equipement.show', $equipement->id)->with('status', 'Équipement affecté au planning avec succès.');
@@ -62,14 +62,14 @@ class EquipementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|min:3|max:50',
             'validity' => 'required|string',
-            'disponibility' => 'nullable',
-            'quantity' => 'required|integer',
+            'disponibility' => 'required',
+            'quantity' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
     
-        // Create a new instance of Equipement
+      
         $equipement = new Equipement([
             'name' => $request->name,
             'validity' => $request->validity,
@@ -121,10 +121,10 @@ class EquipementController extends Controller
     public function update(Request $request, Equipement $equipement)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|min:3|max:50',
             'validity' => 'required|string',
-            'disponibility' => 'nullable',
-            'quantity' => 'required|integer',
+            'disponibility' => 'required',
+            'quantity' => 'required|integer|min:0',
         ]);
         $equipement->update([
             'name'=> $request->name,
