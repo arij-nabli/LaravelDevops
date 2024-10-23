@@ -1,42 +1,29 @@
-version: "3.8"
+version: '3.8'
+
 services:
-  # PHP-FPM Service
-  php:
-    image: arijnabli10/laravel:34 # Utilisation de votre image Laravel/PHP
-    environment:
-      - APP_ENV=${APP_ENV}
-      - CONTAINER_ROLE=app
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www
-    depends_on:
-      - database
-    expose:
-      - "9000" # PHP-FPM s'exécute par défaut sur le port 9000
-  
-  # Nginx Service
-  nginx:
-    image: nginx:alpine
+  web:
+    image: arijnabli10/laravel:34
+    env_file:
+      - .env
     ports:
-      - "8000:80" # Nginx servira votre application sur le port 8000
+      - "8000:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf  # Utiliser un fichier de configuration Nginx personnalisé
-      - ./:/var/www  # L'application Laravel est servie par Nginx
+      - .:/var/www/html
     depends_on:
-      - php  # Nginx doit attendre que le conteneur PHP soit prêt
-  
-  # Database Server
-  database:
-    image: mysql:8.0
+      - db
+
+  db:
+    platform: "linux/amd64"
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: validationlaravel22
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - "3306:3306"
-    environment:
-      - MYSQL_DATABASE=validationlaravel22
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - db-data:/var/lib/mysql
+      - dbdata:/var/lib/mysql
 
 volumes:
-  db-data:
+  dbdata:
