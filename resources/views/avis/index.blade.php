@@ -1,15 +1,13 @@
 @extends('Layouts.frontend')
 
-@section('title', 'List of Awareness Campaigns')
-
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <!-- Bouton Retour en haut à gauche -->
     <div class="d-flex justify-content-start mb-3">
-        <a href="http://127.0.0.1:8000/#services-section" class="btn btn-secondary">Back to the services section</a>
+        <a href="{{ route('campagnes.index') }}" class="btn btn-secondary">Back to list of campaigns</a>
     </div>
 
-    <h1 class="my-4 text-center">List of awareness campaigns</h1>
+    <h1 class="text-center text-success font-weight-bold">Opinions : {{ $campagne->titre }}</h1>
 
     <!-- Affichage des erreurs de validation globales -->
     @if ($errors->any())
@@ -22,45 +20,40 @@
         </div>
     @endif
 
-    <!-- Bouton pour créer une nouvelle campagne -->
+    <!-- Bouton pour créer un nouvel avis -->
     <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('campagnes.create') }}" class="btn btn-success">Create a new awareness campaign</a>
+        <a href="{{ route('campagnes.avis.create', $campagne->id) }}" class="btn btn-success">Create Opinion</a>
     </div>
 
-    <!-- Tableau stylé -->
+    <!-- Tableau des avis -->
     <table class="table table-hover table-bordered text-center shadow-sm">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Author</th>
+                <th>Containing</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($campagnes as $campagne)
+            @foreach($avis as $avi)
                 <tr>
-                    <td>{{ $campagne->id }}</td>
-                    <td>{{ $campagne->titre }}</td>
-                    <td>{{ $campagne->date_debut }}</td>
-                    <td>{{ $campagne->date_fin }}</td>
+                    <td>{{ $avi->id }}</td>
+                    <td>{{ $avi->auteur }}</td>
+                    <td>{{ $avi->contenu }}</td>
                     <td>
                         <!-- Bouton pour voir les détails -->
-                        <a href="{{ route('campagnes.show', $campagne->id) }}" class="btn custom-btn btn-sm">Details</a>
+                        <a href="{{ route('campagnes.avis.show', [$campagne->id, $avi->id]) }}" class="btn custom-btn btn-sm">Details</a>
 
                         <!-- Bouton pour éditer -->
-                        <a href="{{ route('campagnes.edit', $campagne->id) }}" class="btn custom-btn btn-sm">Update</a>
+                        <a href="{{ route('campagnes.avis.edit', [$campagne->id, $avi->id]) }}" class="btn custom-btn btn-sm">Update</a>
 
-                        <!-- Formulaire pour supprimer une campagne -->
-                        <form action="{{ route('campagnes.destroy', $campagne->id) }}" method="POST" style="display:inline;">
+                        <!-- Formulaire pour supprimer un avis -->
+                        <form action="{{ route('campagnes.avis.destroy', [$campagne->id, $avi->id]) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn custom-btn btn-sm">Delete</button>
                         </form>
-
-                        <!-- Bouton pour voir les avis associés -->
-                        <a href="{{ route('campagnes.avis.index', $campagne->id) }}" class="btn custom-btn btn-sm">View opinions</a>
                     </td>
                 </tr>
             @endforeach
@@ -113,12 +106,11 @@
         font-size: 14px;
     }
 
-    /* Ajuster les marges du titre */
+    /* Ajuster les marges et styles du titre */
     h1 {
-        font-size: 45px;
-        color: #333;
-        font-weight: bold;
-        color: #228B22;
+        font-size: 45px; /* Taille de police augmentée */
+        font-weight: bold; /* Texte en gras */
+        color: #228B22; /* Vert foncé */
     }
 
     /* Bouton principal en haut à droite */

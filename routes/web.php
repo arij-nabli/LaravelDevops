@@ -10,6 +10,8 @@ use App\Http\Controllers\PlanningController;
 
 
 
+use App\Http\Controllers\AvisController; 
+
 
 use App\Http\Controllers\DechetController;
 use App\Http\Controllers\CentreRecyclageController;
@@ -51,6 +53,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/collecte-evenements', App\Http\Controllers\CollecteEvenementController::class);
     Route::resource('centre-recyclage', CentreRecyclageController::class);
     Route::resource('/campagnes', CampagneSensibilisationController::class);
+    Route::prefix('campagnes/{campagne_id}')->group(function() {
+        Route::get('avis', [AvisController::class, 'index'])->name('campagnes.avis.index'); // Lister les avis
+        Route::get('avis/create', [AvisController::class, 'create'])->name('campagnes.avis.create'); // Créer un avis
+        Route::post('avis', [AvisController::class, 'store'])->name('campagnes.avis.store'); // Sauvegarder un avis
+        Route::get('avis/{id}', [AvisController::class, 'show'])->name('campagnes.avis.show'); // Afficher un avis
+        Route::get('avis/{id}/edit', [AvisController::class, 'edit'])->name('campagnes.avis.edit'); // Modifier un avis
+        Route::put('avis/{id}', [AvisController::class, 'update'])->name('campagnes.avis.update'); // Mettre à jour un avis
+        Route::delete('avis/{id}', [AvisController::class, 'destroy'])->name('campagnes.avis.destroy'); // Supprimer un avis
+    });
     // Ajoutez d'autres routes sécurisées ici
 });
 
@@ -61,12 +72,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-// Route::get('/login', function () {
-//     return view('auth.login');
-// });
 
-// Route::get('/register', function () {
-//     return view('auth.register');
-// });
+
+
 
 
