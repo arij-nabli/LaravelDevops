@@ -64,7 +64,7 @@ class EquipementController extends Controller
         $request->validate([
             'name' => 'required|string|min:3|max:50',
             'validity' => 'required|string',
-            'disponibility' => 'required',
+            'disponibility' => 'nullable',
             'quantity' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

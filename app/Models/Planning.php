@@ -12,7 +12,8 @@ class Planning extends Model
     protected $fillable = [
         'dateCollecte',
         'heureDebut',
-        'remarques'
+        'remarques',
+        
     ];
     public function equipements()
 {
