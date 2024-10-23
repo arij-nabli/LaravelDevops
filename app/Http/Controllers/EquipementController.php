@@ -12,13 +12,22 @@ class EquipementController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $equipements = Equipement::paginate(3);
-        return view('equipement.index',[
-            'equipements' => $equipements
-        ]);
+    public function index(Request $request)
+{
+    $query = $request->input('search');
+    $equipements = Equipement::when($query, function($queryBuilder) use ($query) {
+        return $queryBuilder->where('name', 'LIKE', "%{$query}%");
+    })->paginate(4);
+
+    if ($request->ajax()) {
+        return view('equipement.partials.equipement_table', compact('equipements'));
     }
+
+    return view('equipement.index', compact('equipements'));
+}
+
+
+
     public function affecterPlanning(Equipement $equipement)
     {
         // Récupérer les plannings futurs
