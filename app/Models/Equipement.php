@@ -14,7 +14,8 @@ class Equipement extends Model
         'name',
         'validity',
         'disponibility',
-        'quantity'
+        'quantity',
+        'image',
     ];
     public function plannings()
 {

@@ -57,15 +57,34 @@ class EquipementController extends Controller
             'validity' => 'required|string',
             'disponibility' => 'nullable',
             'quantity' => 'required|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        equipement::create([
-            'name'=> $request->name,
-            'validity'=> $request->validity,
-            'disponibility'=> $request->disponibility == true ? 1:0,
-            'quantity'=> $request->quantity
+    
+        // Create a new instance of Equipement
+        $equipement = new Equipement([
+            'name' => $request->name,
+            'validity' => $request->validity,
+            'disponibility' => $request->disponibility == true ? 1 : 0,
+            'quantity' => $request->quantity,
         ]);
+    
+        if ($request->hasFile('image')) {
+            // Generate a unique name for the image
+            $imageName = time() . '.' . $request->image->extension();
+            
+            // Move the uploaded file to the public/images directory
+            $request->image->move(public_path('images'), $imageName);
+            
+            // Save the image path in the database
+            $equipement->image = 'images/' . $imageName;
+        }
+    
+        // Save the Equipement instance to the database
+        $equipement->save();
+    
         return redirect('/equipement')->with('status', 'Equipement created successfully');
     }
+    
 
     /**
      * Display the specified resource.
