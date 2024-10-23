@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ZoneCollecte;  
 
 class Dechet extends Model
 {
@@ -15,6 +16,13 @@ class Dechet extends Model
     // Les colonnes qui peuvent être mass-assignable
     protected $fillable = [
         'type', 
-        'description'
+        'description',
+        'zone_collecte_id' // Ajout de la clé étrangère ici
+
     ];
+    public function zoneCollecte()
+    {
+        return $this->belongsTo(ZoneCollecte::class);
+    }
+    
 }

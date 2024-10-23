@@ -14,18 +14,18 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                 
                     <th>Type</th>
                     <th>Description</th>
+                    <th>Zone De Collecte</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($dechets as $dechet)
                     <tr>
-                        
                         <td>{{ $dechet->type }}</td>
                         <td>{{ $dechet->description }}</td>
+                        <td>{{ $dechet->zoneCollecte->nom }} - {{ $dechet->zoneCollecte->code_postal }}</td>
                         <td>
                             <a href="{{ route('dechets.show', $dechet->id) }}" class="btn btn-info">Voir</a>
                             <a href="{{ route('dechets.edit', $dechet->id) }}" class="btn btn-warning">Éditer</a>

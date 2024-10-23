@@ -7,7 +7,6 @@
                     <a href="index.html"><i data-feather="home"></i> <span>Dashboard</span></a>
                 </li>
                 
-            
                 <li>
                     <a href="users.html"><i data-feather="users"></i> <span>Users</span></a>
                 </li>
@@ -67,6 +66,27 @@
                         <li><a href="data-tables.html">Data Table</a></li>
                     </ul>
                 </li>
+
+                <!-- Connexion/Déconnexion -->
+                @auth
+                    <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                           <i data-feather="log-out"></i> <span>Logout</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @endauth
+
+                @guest
+                    <li>
+                        <a href="{{ route('login') }}"><i data-feather="log-in"></i> <span>Login</span></a>
+                    </li>
+                @endguest
+
             </ul>
         </div>
     </div>

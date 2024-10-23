@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,8 +10,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    // Ajout des constantes pour les rôles
+    const ROLE_USER = 'user';
+    const ROLE_ADMIN = 'admin';
+
     /**
-     * The attributes that are mass assignable.
+     * Les attributs assignables en masse.
      *
      * @var array<int, string>
      */
@@ -20,10 +23,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',  // Ajout de la colonne 'role' pour gérer les rôles
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Les attributs qui doivent être cachés lors de la sérialisation.
      *
      * @var array<int, string>
      */
@@ -33,7 +37,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Les attributs qui doivent être castés.
      *
      * @return array<string, string>
      */
@@ -43,5 +47,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Vérifie si l'utilisateur est administrateur.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
+
+    /**
+     * Vérifie si l'utilisateur est un utilisateur normal.
+     */
+    public function isUser(): bool
+    {
+        return $this->role === self::ROLE_USER;
     }
 }

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->text('description')->nullable();
+            // Utilisez uniquement la clé étrangère sans redéfinir le champ
+            $table->foreignId('zone_collecte_id')->constrained('zone_collectes')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

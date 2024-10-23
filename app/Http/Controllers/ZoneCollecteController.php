@@ -28,9 +28,9 @@ class ZoneCollecteController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
-            'code_postal' => 'required|integer',
-            'localisation' => 'required|string',
-        ]);
+            'code_postal' => 'required|numeric|digits:4',
+            'localisation' => 'required|string|max:255',
+        ],);
 
         ZoneCollecte::create($request->all());
         return redirect()->route('dechets.index')
@@ -50,9 +50,18 @@ class ZoneCollecteController extends Controller
     public function update(Request $request, ZoneCollecte $zoneCollecte)
     {
         $request->validate([
-            'nom' => 'required|string|max:255',
-            'code_postal' => 'required|integer',
-            'localisation' => 'required|string',
+            'nom' => 'required|string|max:255|min:3',
+            'code_postal' => 'required|numeric|digits:4',
+            'localisation' => 'required|string|max:255|min:3',
+        ],[
+            'nom.required' => 'Le nom est obligatoire.',
+            'code_postal.required' => 'Le code postal est obligatoire.',
+            'code_postal.digits' => 'Le code postal doit être composé de 4 chiffres.',
+            'localisation.required' => 'La localisation est obligatoire.',
+            'nom.min' => 'La nom doit comporter au moins 3 caractères' ,
+            'localisation.min' => 'La localisation doit comporter au moins 3 caractères'
+
+            
         ]);
 
         $zoneCollecte->update($request->all());
