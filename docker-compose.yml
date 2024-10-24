@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: arijnabli10/laravel:8
+    image: arijnabli10/laravel:9
     container_name: laravel-app
     volumes:
       - ./:/var/www/html
