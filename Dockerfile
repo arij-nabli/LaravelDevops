@@ -1,50 +1,41 @@
-FROM php:8.2.11-fpm
+# Use the official PHP image with the necessary extensions
+FROM php:8.2-fpm
 
-# Install Composer
-RUN echo "Install COMPOSER" \
-    && cd /tmp \
-    && curl -sS https://getcomposer.org/installer -o composer-setup.php \
-    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-    && rm composer-setup.php
-
-# Install required PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql
-
-# Update package manager and install useful tools
-RUN apt-get update && apt-get -y install apt-utils nano wget dialog vim
-
-# Install important libraries
-RUN echo "Install important libraries" \
-    && apt-get -y install --fix-missing \
-    apt-utils \
-    build-essential \
-    git \
-    curl \
-    libcurl4 \
-    libcurl4-openssl-dev \
-    zlib1g-dev \
-    libzip-dev \
-    zip \
-    libbz2-dev \
-    locales \
-    libmcrypt-dev \
-    libicu-dev \
-    libonig-dev \
-    libxml2-dev
-
-# Install Postgres PDO (adjust for Windows if needed)
-RUN apt-get install -y libpq-dev \
-    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo pdo_pgsql pgsql
-
-# Clean up
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Set the working directory
+# Set working directory
 WORKDIR /var/www
 
-# Expose the port
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    unzip \
+    git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd zip pdo pdo_mysql
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy the application code
+COPY . .
+
+# Install PHP dependencies
+RUN composer install
+
+# Install Node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install
+
+# Install JavaScript dependencies
+RUN npm install
+
+# Run Laravel migrations
+
+# Expose the port that the app runs on
 EXPOSE 9000
 
-# Define the entry point
+# Start the PHP server
 CMD ["php-fpm"]

@@ -1,48 +1,56 @@
 version: '3.8'
 
 services:
-  # Application Service
   app:
-    container_name: blog
-    image: arijnabli10/laravel:38  # Utilisation de l'image spécifiée
+    image: arijnabli10/laravel:9
+    container_name: laravel-app
     volumes:
-      - ./src:/var/www
-    ports:
-      - "9000:9000"
-    working_dir: /var/www
+      - ./:/var/www/html
+    networks:
+      - laravel-network
     depends_on:
       - db
+    ports:
+      - "8000:80"
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: restaurant
+      DB_USERNAME: root
+      DB_PASSWORD: 
+      APP_URL: http://localhost/
 
-  # Database Service
+
   db:
     image: mysql:5.7
-    container_name: mysql-dev
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ValidationLaravel22  # Nom de votre base de données
-      MYSQL_ROOT_PASSWORD: ""  # Mot de passe root
-      MYSQL_PASSWORD: ""  # Mot de passe pour l'utilisateur
-      MYSQL_USER: root  # Utilisateur root
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+    container_name: mysql
+    restart: always
     volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d  # Scripts d'initialisation de la base de données
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ValidationLaravel22
+      MYSQL_ROOT_PASSWORD: 
     networks:
-      - travellist
+      - laravel-network
 
-  # Web Server Service
   nginx:
     image: nginx:alpine
-    container_name: nginx
+    container_name: nginx_server
+    restart: always
     ports:
-      - "8081:80"
+      - "80:80"
     volumes:
-      - ./src:/var/www
-      - ./nginx/default.conf:/etc/nginx/default.conf  # Utilisation du fichier default.conf
+      - ./:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf 
     depends_on:
-      - app
       - db
+    networks:
+      - laravel-network
+
+volumes:
+  db_data:
 
 networks:
-  travellist:
+  laravel-network:
     driver: bridge
