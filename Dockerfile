@@ -1,41 +1,32 @@
-# Use the official PHP image with the necessary extensions
+# use PHP 8.2
 FROM php:8.2-fpm
 
-# Set working directory
-WORKDIR /var/www
-
-# Install system dependencies
+# Install common php extension dependencies
 RUN apt-get update && apt-get install -y \
+    libfreetype-dev \
+    libjpeg62-turbo-dev \
     libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
+    zlib1g-dev \
     libzip-dev \
     unzip \
-    git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip pdo pdo_mysql
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install zip
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Set the working directory
+COPY . /var/www/app
+WORKDIR /var/www/app
 
-# Copy the application code
-COPY . .
+RUN chown -R www-data:www-data /var/www/app \
+    && chmod -R 775 /var/www/app/storage
 
-# Install PHP dependencies
+
+# install composer
+COPY --from=composer:2.6.5 /usr/bin/composer /usr/local/bin/composer
+
+# copy composer.json to workdir & install dependencies
+COPY composer.json ./
 RUN composer install
 
-# Install Node.js and npm
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install
-
-# Install JavaScript dependencies
-RUN npm install
-
-# Run Laravel migrations
-
-# Expose the port that the app runs on
-EXPOSE 9000
-
-# Start the PHP server
+# Set the default command to run php-fpm
 CMD ["php-fpm"]
