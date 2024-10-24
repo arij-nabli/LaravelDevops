@@ -1,8 +1,12 @@
+
+
+
+
 version: '3.8'
 
 services:
   app:
-    image: arijnabli10/laravel:10
+    image: arijnabli10/laravel:10  # Pull from Docker Hub
     container_name: laravel-app
     volumes:
       - ./:/var/www/html
@@ -22,7 +26,17 @@ services:
       APP_URL: http://localhost/
 
 
-
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ValidationLaravel22
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - laravel-network
 
   nginx:
     image: nginx:alpine
@@ -38,12 +52,9 @@ services:
     networks:
       - laravel-network
 
-
 volumes:
   db_data:
 
 networks:
   laravel-network:
     driver: bridge
-
-
