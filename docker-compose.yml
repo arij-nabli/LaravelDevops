@@ -16,23 +16,13 @@ services:
       DB_CONNECTION: mysql
       DB_HOST: db
       DB_PORT: 3306
-      DB_DATABASE: restaurant
+      DB_DATABASE: ValidationLaravel22
       DB_USERNAME: root
       DB_PASSWORD: 
       APP_URL: http://localhost/
 
 
-  db:
-    image: mysql:5.7
-    container_name: mysql
-    restart: always
-    volumes:
-      - db_data:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: ValidationLaravel22
-      MYSQL_ROOT_PASSWORD: 
-    networks:
-      - laravel-network
+
 
   nginx:
     image: nginx:alpine
