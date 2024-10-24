@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: arijnabli10/laravel:34
+    image: arijnabli10/laravel:38
   
     environment:
       SERVICE_NAME: app
