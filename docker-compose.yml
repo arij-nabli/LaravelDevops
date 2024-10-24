@@ -1,44 +1,48 @@
+version: '3.8'
 
+services:
+  # Application Service
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: arijnabli10/laravel:38
-    container_name: app
-    restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
+    container_name: blog
+    image: arijnabli10/laravel:38  # Utilisation de l'image spécifiée
+    volumes:
+      - ./src:/var/www
+    ports:
+      - "9000:9000"
     working_dir: /var/www
-    networks:
-      - app-network
+    depends_on:
+      - db
 
-  #Nginx Service
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      - app-network
-
-  #MySQL Service
+  # Database Service
   db:
-    image: mysql:5.7.22
-    container_name: 127.0.0.1
+    image: mysql:5.7
+    container_name: mysql-dev
     restart: unless-stopped
-    tty: true
-    ports:
-      - "3306:3306"
     environment:
-      MYSQL_DATABASE: ValidationLaravel22
-      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: ValidationLaravel22  # Nom de votre base de données
+      MYSQL_ROOT_PASSWORD: ""  # Mot de passe root
+      MYSQL_PASSWORD: ""  # Mot de passe pour l'utilisateur
+      MYSQL_USER: root  # Utilisateur root
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d  # Scripts d'initialisation de la base de données
     networks:
-      - app-network
+      - travellist
 
+  # Web Server Service
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "8081:80"
+    volumes:
+      - ./src:/var/www
+      - ./nginx/default.conf:/etc/nginx/default.conf  # Utilisation du fichier default.conf
+    depends_on:
+      - app
+      - db
+
+networks:
+  travellist:
+    driver: bridge

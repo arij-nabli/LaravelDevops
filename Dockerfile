@@ -1,45 +1,50 @@
-FROM php:8.2-fpm
-
-# Set working directory
-WORKDIR /var/www
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    locales \
-    zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
-    unzip \
-    git \
-    curl \
-    libzip-dev \
-    libpq-dev \
-    libonig-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
-
-# Install PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring zip exif pcntl
-
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM php:8.2.11-fpm
 
 # Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN echo "Install COMPOSER" \
+    && cd /tmp \
+    && curl -sS https://getcomposer.org/installer -o composer-setup.php \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && rm composer-setup.php
 
-# Copy the existing application directory contents to the working directory
-COPY . /var/www
+# Install required PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Copy the existing application directory permissions to the working directory
-COPY --chown=www-data:www-data . /var/www
+# Update package manager and install useful tools
+RUN apt-get update && apt-get -y install apt-utils nano wget dialog vim
 
-# Change current user to www
-USER www-data
+# Install important libraries
+RUN echo "Install important libraries" \
+    && apt-get -y install --fix-missing \
+    apt-utils \
+    build-essential \
+    git \
+    curl \
+    libcurl4 \
+    libcurl4-openssl-dev \
+    zlib1g-dev \
+    libzip-dev \
+    zip \
+    libbz2-dev \
+    locales \
+    libmcrypt-dev \
+    libicu-dev \
+    libonig-dev \
+    libxml2-dev
 
-# Expose port 9000 and start php-fpm server
+# Install Postgres PDO (adjust for Windows if needed)
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
+
+# Clean up
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /var/www
+
+# Expose the port
 EXPOSE 9000
+
+# Define the entry point
 CMD ["php-fpm"]
