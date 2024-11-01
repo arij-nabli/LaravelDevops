@@ -31,7 +31,7 @@ services:
             - db-data:/var/lib/mysql
     redis:
         container_name:  redis
-        image: redis:alpine
+        image: arijnabli10/projet-laravel:29
         command: redis-server --appendonly yes --requirepass  "secret"
         ports:
             - 6380:6379
