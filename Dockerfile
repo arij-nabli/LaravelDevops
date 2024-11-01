@@ -1,54 +1,50 @@
-# Used for prod build.
-FROM php:8.2-fpm as php
-# Set working directory
-WORKDIR /var/www
-ENV PHP_OPCACHE_ENABLE=1
-ENV PHP_OPCACHE_ENABLE_CLI=0
-ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
-ENV PHP_OPCACHE_REVALIDATE_FREQ=0
+# Use the official PHP image with the FPM variant
+FROM php:8.2-fpm
+
+# Set the working directory
+WORKDIR /var/www/html
+
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    unzip \
+    git \
+    curl \
+    libxml2-dev \
+    libxslt1-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd zip pdo pdo_mysql xml xsl bcmath opcache
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy the application code
+COPY . .
+
+# Ensure the necessary permissions are set for storage and cache directories
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+RUN composer install 
 
 
-RUN apt-get update && apt-get install -y unzip libpq-dev libcurl4-gnutls-dev nginx libonig-dev
+# Install Node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install
 
-# Install PHP extensions.
-RUN docker-php-ext-install mysqli pdo pdo_mysql bcmath curl opcache mbstring
+# Install JavaScript dependencies and build assets
+RUN npm install && npm run build
 
-# Copy composer executable.
-COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer
+ RUN php artisan migrate --force
 
-# Copy configuration files.
-COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
-COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
-COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
+# Expose the port that the app runs on
+EXPOSE 9000
 
-# Set working directory to /var/www.
-WORKDIR /var/www
+# Start the PHP-FPM server
+CMD ["php-fpm"]
 
-# Copy files from current folder to container current folder (set in workdir).
-COPY --chown=www-data:www-data . .
 
-# Create laravel caching folders.
-RUN mkdir -p /var/www/storage/framework
-RUN mkdir -p /var/www/storage/framework/cache
-RUN mkdir -p /var/www/storage/framework/testing
-RUN mkdir -p /var/www/storage/framework/sessions
-RUN mkdir -p /var/www/storage/framework/views
-
-# Fix files ownership.
-RUN chown -R www-data /var/www/storage
-RUN chown -R www-data /var/www/storage/framework
-RUN chown -R www-data /var/www/storage/framework/sessions
-
-# Set correct permission.
-RUN chmod -R 755 /var/www/storage
-RUN chmod -R 755 /var/www/storage/logs
-RUN chmod -R 755 /var/www/storage/framework
-RUN chmod -R 755 /var/www/storage/framework/sessions
-RUN chmod -R 755 /var/www/bootstrap
-
-# Adjust user permission & group
-RUN usermod --uid 1000 www-data
-RUN groupmod --gid 1001 www-data
-
-# Run the entrypoint file.
-ENTRYPOINT [ "docker/entrypoint.sh" ]
