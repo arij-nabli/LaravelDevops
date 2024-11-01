@@ -3,7 +3,7 @@ services:
     api:
         container_name: api
         build:
-            image: arijnabli10/projet-laravel:28
+            context: .
             target: php
             args:
                 - APP_ENV=${APP_ENV}
