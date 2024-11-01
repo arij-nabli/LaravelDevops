@@ -1,22 +1,22 @@
 version: "3.8"
+
 services:
-    api:
-        container_name: api
-        build:
-            context: .
-            target: php
-            args:
-                - APP_ENV=${APP_ENV}
-        environment:
-            - APP_ENV=${APP_ENV}
-        working_dir: /var/www
-        volumes:
-            - ./:/var/www
-        ports:
-            - 9000:8080
-        depends_on:
-            - database
-            - redis
+  app:
+    image: arijnabli10/projet-laravel:29 # Utiliser l'image depuis Docker Hub
+    container_name: laravel-app
+    build:
+      context: .  # Chemin vers le contexte de construction, si vous avez un Dockerfile
+    volumes:
+      - ./:/var/www/html  # Monter le répertoire courant dans le conteneur
+    networks:
+      - laravel-network  # Ajouter le conteneur à un réseau personnalisé
+    environment:
+      - APP_ENV=${APP_ENV}  # Passer la variable d'environnement
+    ports:
+      - 9000:8080  # Port d'exposition de l'application
+    depends_on:
+      - database  # Dépendance sur le service de base de données
+      - redis  # Dépendance sur le service Redis
     database:
         container_name: database
         image: mysql:8.0
@@ -31,7 +31,7 @@ services:
             - db-data:/var/lib/mysql
     redis:
         container_name:  redis
-        image: arijnabli10/projet-laravel:29
+        image: redis:alpine
         command: redis-server --appendonly yes --requirepass  "secret"
         ports:
             - 6380:6379
